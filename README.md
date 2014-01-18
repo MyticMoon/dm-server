@@ -43,6 +43,13 @@ Things to do next:
 
 II) Text Search
 http://msm3.cais.ntu.edu.sg/documentation/zixiang/index.html
+III) Inspectdb
+
+* Rearrange model order
+* Make sure each model has one field with primary key = true
+* remove managed = false lines for those models you wish to give write access to
+Can rename the models but dont rename bb_table values or field balues
+You will have to insert output of 'django-admin.py sqlcustom [appname] to your database'
 
 =========
 1) Provide a fake API for Shu Qi
