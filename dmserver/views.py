@@ -37,9 +37,12 @@ def formatCategoryJson(query_results):
 @csrf_exempt
 def DetailProdByPidPost(request):
     proID = None;
-    #if request.method == "POST":
-        #proID = request.POST['pid']
-    proID = 91007112819
+    if request.method != "POST":
+        return HttpResponse("Invalid request")
+    if request.POST['pid'] == None:
+        return HttpResponse("Invalid request, pid is missing")
+    proID = request.POST['pid']
+    #proID = 91007112819
     prod_query = "select p.product_id, p.name, p.price, p.description, p.product_url, p.brand, p.merchant, p.color, c.cid, c.name, i.pic_path, i.img_id from (products as p left join categories as c on p.cid=c.cid) left join images as i on p.product_id=i.product_id where p.product_id = %s order by i.img_type asc" % (str(proID))
     cursor1 = connection.cursor()
     cursor1.execute(prod_query)
