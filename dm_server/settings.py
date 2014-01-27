@@ -10,8 +10,14 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import logging
+import logging.config
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+
+#config for logging
+# LOGGING_CONFIG = 'logging.conf' # logging configuration file
+# logging.config.fileConfig(LOGGING_CONFIG)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
