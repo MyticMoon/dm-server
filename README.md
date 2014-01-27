@@ -51,7 +51,15 @@ III) Inspectdb
 Can rename the models but dont rename bb_table values or field balues
 You will have to insert output of 'django-admin.py sqlcustom [appname] to your database'
 
+IV) Image Search
+APIkey: nlzscvsnGO3DNjwOngygEvBzFxz0mhGOJnEpPpN44rY
+
 =========
+To start project
+-tmux
+-run process
+-Ctrl B then D for detach
+
 1) Provide a fake API for Shu Qi
 2) Deploy text search server on Azure
 3) Deploy vise buy and SQL database to another Azure server
