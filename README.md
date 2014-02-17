@@ -54,6 +54,15 @@ You will have to insert output of 'django-admin.py sqlcustom [appname] to your d
 IV) Image Search
 APIkey: nlzscvsnGO3DNjwOngygEvBzFxz0mhGOJnEpPpN44rY
 
+V) Test the Params Filter, by taking the URL from the old visebuy website:
+Text search with filter
+- http://localhost:8000/dmserver/debugparamsfilter/?text=2010&filter=color:11,-1,-1,-1;&page=1&
+Category search with filter
+http://localhost:8000/dmserver/debugparamsfilter/?category=%E8%BF%90%E5%8A%A8%E9%9E%8B&filter=style:%E7%94%9F%E6%B4%BB%E9%9E%8B;&page=1&
+
+
+VI) Transfer big file from window to remote unix server using scp
+
 =========
 To start project
 -tmux

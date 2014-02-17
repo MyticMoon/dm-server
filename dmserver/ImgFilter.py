@@ -8,15 +8,15 @@ def doFilter(request):
     sortMap = ['price', 'name']
 
     imgID = request.GET['data']
-    primKey = request.GET['primeKey'] #primKey always store pid value
-    secKey = request.GET['secKey'] #secKey stores value for sort field, must be null if there is no sorting
-    sortParam = request.GET['sort'] #only allow single sort
-    filterParam = request.GET['filter'] #allow multiple filters
+    primKey = request.GET['primeKey']  # primKey always store pid value
+    secKey = request.GET['secKey']  # secKey stores value for sort field, must be null if there is no sorting
+    sortParam = request.GET['sort']  # only allow single sort
+    filterParam = request.GET['filter']  # allow multiple filters
 
-    whereClause1 = None #clause for next pages
-    whereClause2 = None #clause for previous pages
-    sortClause1 = None #clause for next pages
-    sortClause2 = None #clause for previous pages
+    whereClause1 = None  # clause for next pages
+    whereClause2 = None  # clause for previous pages
+    sortClause1 = None  # clause for next pages
+    sortClause2 = None  # clause for previous pages
 
     #	Truth table for passing primKey, secKey, sort parameters
 	#	 *  -----------------------------------
@@ -45,10 +45,10 @@ def doFilter(request):
     else: #if it's not a catID, pID or brand search, it's invalid
         return HttpResponse('Bad Request')
 
-    #If there's no sort and is searching 1st page, no need to append anything
-	#If there's no sort and is searching non-1st page using primKey, append the following whereClause using only primKey
-	#If there's sorting and is searching 1st page, only need to append sortClause
-	#If there's sorting and is searching non-1st page using primKey & secKey, append sortClause and whereClause using both keys
+    # If there's no sort and is searching 1st page, no need to append anything
+	# If there's no sort and is searching non-1st page using primKey, append the following whereClause using only primKey
+	# If there's sorting and is searching 1st page, only need to append sortClause
+	# If there's sorting and is searching non-1st page using primKey & secKey, append sortClause and whereClause using both keys
     if sortParam is not None:
         sort = sortParam.split(':')
         #if it's an array of 2 strings and sort field is valid

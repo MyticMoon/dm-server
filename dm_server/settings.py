@@ -59,6 +59,14 @@ ROOT_URLCONF = 'dm_server.urls'
 WSGI_APPLICATION = 'dm_server.wsgi.application'
 
 
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    # os.path.join(os.path.dirname(__file__),'Templates').replace('\\','/')
+    os.path.realpath(os.path.dirname(__file__)) + "/dmserver/templates/"
+)
+
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 

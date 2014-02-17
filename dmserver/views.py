@@ -7,7 +7,11 @@ import random
 from dmserver.models import Categories, Products
 import json
 from django.db import connection
+import pycurl
 # Create your views here.
+
+def viewHomePage(request):
+    return render(request, 'homepage.html')
 
 @csrf_exempt
 def categoriesDoPost(request):
