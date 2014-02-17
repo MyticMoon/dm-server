@@ -43,6 +43,7 @@ Things to do next:
 
 II) Text Search
 http://msm3.cais.ntu.edu.sg/documentation/zixiang/index.html
+change bind address at etc/mysql/my.cnf to 0.0.0.0
 III) Inspectdb
 
 * Rearrange model order
