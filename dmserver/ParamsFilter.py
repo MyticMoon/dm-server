@@ -100,7 +100,7 @@ def doFilter(request):
     else:
         sort = sortParam.split(":")
         if len(sort) == 2 and sort[0] in sortMap:
-            request.GET["sortField"] = sort[0]
+            #request.GET["sortField"] = sort[0]
             if "desc" == sort[1]:
                 sortClause1 += " desc, "
                 sortClause2 += " asc, "

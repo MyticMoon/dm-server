@@ -10,8 +10,10 @@ from django.db import connection
 import pycurl
 # Create your views here.
 
+
 def viewHomePage(request):
     return render(request, 'homepage.html')
+
 
 @csrf_exempt
 def categoriesDoPost(request):
@@ -28,6 +30,7 @@ def categoriesDoPost(request):
         cat_json = formatCategoryJson(cat_filter_results)
     return HttpResponse(cat_json)
 
+
 def formatCategoryJson(query_results):
     #catXml = CatID, CatName
     #TODO prepare a config file
@@ -37,6 +40,7 @@ def formatCategoryJson(query_results):
                  'Output': cat_json
                 }])
     return json_file
+
 
 @csrf_exempt
 def DetailProdByPidPost(request):
@@ -74,6 +78,7 @@ def DetailProdByPidPost(request):
 
     return HttpResponse(prod_json_result)
 
+
 def formatProDetailJson(query_results, recommend_result):
     #profield = ProductID,ProductName,ProductPrice,ProductDesc,ProductURL,ProductBrand,ProductMerchant,ProductColor,CatID,CatName
     delete = 'this'
@@ -104,6 +109,7 @@ def formatProDetailJson(query_results, recommend_result):
                              }])
     return json_file
 
+
 def formatRecommendJson(query_results):
     #recommendXML = ProductID,ProductName,ProductPrice,CatID,ProductImage,ProductImageID
 
@@ -117,3 +123,25 @@ def formatRecommendJson(query_results):
     #recommend_json = [{'Recommendation': recommend_product}]
 
     return recommend_product
+
+
+@csrf_exempt
+def categoriesListing(request):
+    if request.method != 'POST':
+        return HttpResponse('Bad Http Request')
+    categoriesListingQuery = "select cid, name, parent_cid, is_parent from categories"
+    cursor2 = connection.cursor()
+    cursor2.execute(categoriesListingQuery)
+    category_result = cursor2.fetchall()
+    formattedJsonResult = formatCategoryListing(category_result)
+    return HttpResponse(formattedJsonResult)
+
+
+def formatCategoryListing(category_results):
+    jsonCategoryResult = [{'CategoryID': result[0],
+                           'Name': result[1],
+                           'Parent_CID': result[2],
+                           'Is_Parent': result[3]} for result in category_results]
+    formattedJsonResult = json.dumps([{'Result': {'ResultType': 'cateogry_listing'},
+                                       'Output': jsonCategoryResult}])
+    return formattedJsonResult

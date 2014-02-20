@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^homepage/', views.DetailProdByPidPost, name='homepage'),
     url(r'^textsearch/', textsearch.debugTextSearch, name='textsearch'),
     url(r'^debugisleaf/', ParamsFilter.debugIsLeaf, name='debugIsLeaf'),
-    url(r'^debugparamsfilter', ParamsFilter.doFilter, name='debugParamsFilter')
+    url(r'^debugparamsfilter', ParamsFilter.doFilter, name='debugParamsFilter'),
+    url(r'^categorylisting', views.categoriesListing, name='categoriesListing')
 )
