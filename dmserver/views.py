@@ -138,10 +138,24 @@ def categoriesListing(request):
 
 
 def formatCategoryListing(category_results):
-    jsonCategoryResult = [{'CategoryID': result[0],
+    # jsonCategoryResult = [{'CategoryID': result[0],
+    #                        'Name': result[1],
+    #                        'Parent_CID': result[2],
+    #                        'Is_Parent': result[3]} for result in category_results]
+    jsonCategoryResult = []
+    jsonSubCategory = []
+    tempParentCid = str(category_results[0][2])
+    for result in category_results:
+        if str(result[2]) != tempParentCid:
+            jsonCategoryResult.append({'ParentID': tempParentCid,
+                                       'Categories': jsonSubCategory})
+            jsonSubCategory = []
+            tempParentCid = str(result[2])
+        jsonSubCategory.append({'CategoryID': result[0],
                            'Name': result[1],
                            'Parent_CID': result[2],
-                           'Is_Parent': result[3]} for result in category_results]
-    formattedJsonResult = json.dumps([{'Result': {'ResultType': 'cateogry_listing'},
+                           'Is_Parent': result[3]})
+
+    formattedJsonResult = json.dumps([{'Result': {'ResultType': 'category_listing'},
                                        'Output': jsonCategoryResult}])
     return formattedJsonResult
