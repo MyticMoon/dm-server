@@ -159,3 +159,14 @@ def formatCategoryListing(category_results):
     formattedJsonResult = json.dumps([{'Result': {'ResultType': 'category_listing'},
                                        'Output': jsonCategoryResult}])
     return formattedJsonResult
+
+@csrf_exempt
+def returnImageList(request):
+    categoriesListingQuery = "select substring(pic_url, 24) from images limit 300"
+    cursor2 = connection.cursor()
+    cursor2.execute(categoriesListingQuery)
+    category_result = cursor2.fetchall()
+    returnValue = ""
+    for result in category_result:
+        returnValue += "," + result[0]
+    return HttpResponse(returnValue)

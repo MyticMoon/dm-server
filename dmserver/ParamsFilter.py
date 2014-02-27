@@ -56,10 +56,10 @@ def doFilter(request):
         if isLeaf(catID):
             whereClause1 += "p.cid = " + catID
         else:
-            request.GET["catid"] = catID
+            #request.GET["catid"] = catID
             # is catID is leaf, dispatch from here and do not perform computation after this
             # originally the request is dispatched to msm4
-            return None
+            return HttpResponse("No category found")
         filterSelection = ["gender", "style", "brand"]
     elif brandName is not None:
         whereClause1 += "p.brand='" + brandName + "'"
@@ -144,7 +144,7 @@ def doFilter(request):
         request.GET["sortClause2"] = sortClause2
 
     #TODO there is a "limit ?" in proQuery but I can't find the usage of it
-    proQuery = "select p.product_id, p.name, p.price, p.cid, i.pic_path, i.img_id from products as p left join images as i on p.product_id=i.product_id where %s and i.img_type like 'P' %s" % (smart_str(whereClause1), smart_str(sortClause1))
+    proQuery = "select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where %s and i.img_type like 'P' %s" % (smart_str(whereClause1), smart_str(sortClause1))
     cursor1 = connection.cursor()
     cursor1.execute(proQuery)
     prod_result = cursor1.fetchall()
