@@ -67,6 +67,10 @@ TEMPLATE_DIRS = (
     os.path.realpath(os.path.dirname(__file__)) + "/dmserver/templates/"
 )
 
+UPLOAD_DIR = os.path.realpath(os.path.dirname(__file__)) + "/../dmserver/upload/"
+
+API_KEY = "smXOYrkgqnU6t6Rt5ro0LaujRB5xjJl5OjuZqQ8LsYM"
+
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 

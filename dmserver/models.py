@@ -1,8 +1,7 @@
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Remove `managed = False` lines for those models you wish to give write DB access
+#     * Rearrange models' order
+#     * Make sure each model has one field with primary_key=True
 # Feel free to rename the models, but don't rename db_table values or field names.
 #
 # Also note: You'll have to insert the output of 'django-admin.py sqlcustom [appname]'
@@ -17,26 +16,24 @@ class Categories(models.Model):
     name = models.TextField()
     parent_cid = models.BigIntegerField()
     class Meta:
-        managed = False
         db_table = 'categories'
 
 class Images(models.Model):
     img_id = models.IntegerField(primary_key=True)
     img_id_in_visebuy = models.IntegerField()
     product_id = models.BigIntegerField()
-    pic_url = models.CharField(max_length=255)
-    pic_path = models.CharField(max_length=255)
-    img_type = models.CharField(max_length=1)
-    pri_color_12 = models.IntegerField(blank=True, null=True)
-    pri_color_12_value = models.FloatField(blank=True, null=True)
-    sec_color_12 = models.IntegerField(blank=True, null=True)
-    sec_color_12_value = models.FloatField(blank=True, null=True)
-    pri_color_128 = models.IntegerField(blank=True, null=True)
-    pri_color_128_value = models.FloatField(blank=True, null=True)
-    sec_color_128 = models.IntegerField(blank=True, null=True)
-    sec_color_128_value = models.FloatField(blank=True, null=True)
+    pic_url = models.CharField(max_length=255L)
+    pic_path = models.CharField(max_length=255L)
+    img_type = models.CharField(max_length=1L)
+    pri_color_12 = models.IntegerField(null=True, blank=True)
+    pri_color_12_value = models.FloatField(null=True, blank=True)
+    sec_color_12 = models.IntegerField(null=True, blank=True)
+    sec_color_12_value = models.FloatField(null=True, blank=True)
+    pri_color_128 = models.IntegerField(null=True, blank=True)
+    pri_color_128_value = models.FloatField(null=True, blank=True)
+    sec_color_128 = models.IntegerField(null=True, blank=True)
+    sec_color_128_value = models.FloatField(null=True, blank=True)
     class Meta:
-        managed = False
         db_table = 'images'
 
 class Labelqueries(models.Model):
@@ -58,7 +55,6 @@ class Labelqueries(models.Model):
     rank_lw = models.TextField()
     rank_lc = models.TextField()
     class Meta:
-        managed = False
         db_table = 'labelqueries'
 
 class Labels(models.Model):
@@ -69,32 +65,47 @@ class Labels(models.Model):
     imgids = models.TextField()
     labels = models.TextField()
     class Meta:
-        managed = False
         db_table = 'labels'
 
 class Labelusers(models.Model):
     labeluser_id = models.IntegerField(primary_key=True)
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
+    username = models.CharField(max_length=50L)
+    password = models.CharField(max_length=50L)
     class Meta:
-        managed = False
         db_table = 'labelusers'
 
 class Products(models.Model):
     product_id = models.BigIntegerField(primary_key=True)
     cid = models.BigIntegerField()
-    brand = models.CharField(max_length=20)
-    style = models.CharField(max_length=10, blank=True)
+    brand = models.CharField(max_length=20L)
+    style = models.CharField(max_length=10L, blank=True)
     name = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=12, decimal_places=2)
     description = models.TextField()
-    product_url = models.CharField(max_length=255)
+    product_url = models.CharField(max_length=255L)
     merchant = models.TextField()
-    color = models.CharField(max_length=255)
+    color = models.CharField(max_length=255L)
     recommendation = models.TextField()
-    gender = models.CharField(max_length=3)
-    category = models.CharField(max_length=3)
+    gender = models.CharField(max_length=3L)
+    category = models.CharField(max_length=3L)
     class Meta:
-        managed = False
         db_table = 'products'
+
+class TmpImages(models.Model):
+    img_id = models.IntegerField(primary_key=True)
+    img_id_in_visebuy = models.IntegerField()
+    product_id = models.BigIntegerField()
+    pic_url = models.CharField(max_length=255L)
+    pic_path = models.CharField(max_length=255L)
+    img_type = models.CharField(max_length=1L)
+    pri_color_12 = models.IntegerField(null=True, blank=True)
+    pri_color_12_value = models.FloatField(null=True, blank=True)
+    sec_color_12 = models.IntegerField(null=True, blank=True)
+    sec_color_12_value = models.FloatField(null=True, blank=True)
+    pri_color_128 = models.IntegerField(null=True, blank=True)
+    pri_color_128_value = models.FloatField(null=True, blank=True)
+    sec_color_128 = models.IntegerField(null=True, blank=True)
+    sec_color_128_value = models.FloatField(null=True, blank=True)
+    class Meta:
+        db_table = 'tmp_images'
 

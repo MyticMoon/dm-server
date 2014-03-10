@@ -1,4 +1,5 @@
 from sets import Set
+from django.utils.encoding import smart_str
 import textsearch
 
 
@@ -39,7 +40,7 @@ class Filters():
                         if filter[0].lower() == "text":
                             start = str(500*page-500)
                             listFinal = []
-                            hash = textsearch.getPIDFromText(filter[1], start, "500")  # dictionary is a hash table
+                            hash = textsearch.getPIDFromText(smart_str(filter[1]), start, "500")  # dictionary is a hash table
                             if hash is not None:
                                 # convert the dictionary to string
                                 # TODO modify this part

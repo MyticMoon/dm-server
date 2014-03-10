@@ -42,6 +42,9 @@ Things to do next:
 
 
 II) Text Search
+To start text search server
+Goto: opt/solr/apache-solr
+Execute: java -jar start.jar
 http://msm3.cais.ntu.edu.sg/documentation/zixiang/index.html
 change bind address at etc/mysql/my.cnf to 0.0.0.0
 III) Inspectdb
@@ -53,7 +56,8 @@ Can rename the models but dont rename bb_table values or field balues
 You will have to insert output of 'django-admin.py sqlcustom [appname] to your database'
 
 IV) Image Search
-APIkey: nlzscvsnGO3DNjwOngygEvBzFxz0mhGOJnEpPpN44rY
+APIkey: 6cDgWkHEfqnFFgw13oqq6XBiKXxrqC0ZtPbaIChP4uc
+
 
 V) Test the Params Filter, by taking the URL from the old visebuy website:
 Text search with filter
@@ -64,12 +68,13 @@ http://localhost:8000/dmserver/debugparamsfilter/?category=%E8%BF%90%E5%8A%A8%E9
 
 VI) Transfer big file from window to remote unix server using scp
 
+
+VII) Future plan
+-Receive the returned result from Kyle
+-Create a new table in database to support testing of the new image server (for both local and product enviroment)
+
 =========
 To start project
 -tmux
 -run process
 -Ctrl B then D for detach
-
-1) Provide a fake API for Shu Qi
-2) Deploy text search server on Azure
-3) Deploy vise buy and SQL database to another Azure server
