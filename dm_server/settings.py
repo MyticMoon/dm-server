@@ -24,7 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'm3nja&87d=ki1-5(dz(bh18lpn&a90r=^fy#89-6j18!jca!d9'
-
+#project_id;166
+#job_id:25
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -69,8 +70,6 @@ TEMPLATE_DIRS = (
 
 UPLOAD_DIR = os.path.realpath(os.path.dirname(__file__)) + "/../dmserver/upload/"
 
-API_KEY = "smXOYrkgqnU6t6Rt5ro0LaujRB5xjJl5OjuZqQ8LsYM"
-
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
@@ -104,3 +103,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+API_KEY = "DqxoR5Gl6cctRj05hsQqNDlfl5F23okS3TFGFNQEz7E"

@@ -11,14 +11,13 @@ from dmserver import textsearch, Filters
 from models import TmpImages
 
 
-
 @csrf_exempt
 @transaction.commit_on_success
 def receiveIndexedImage(request):
     if request.method != "POST":
         return HttpResponse("Not a POST request")
     indexedResult = request.POST.get("indexedImage", None)
-    listOfIndexedImg = (indexedResult).split(",")
+    listOfIndexedImg = indexedResult.split(",")
     for img in listOfIndexedImg:
         imgAndId = img.split(":")
         imgURL = imgAndId[0]
@@ -68,7 +67,7 @@ def getIDListFromImageServer(upload):
         ('file', (pycurl.FORM_FILE, str(os.path.join(uploadFullPath, upload.name)))),
         ('api_key', settings.API_KEY),
         ('result_type', 'id'),
-        ('result_size', '50')
+        ('result_size', '12')
     ]
     buff = cStringIO.StringIO()
     c = pycurl.Curl()
@@ -180,7 +179,8 @@ def imageQueryRequest(request):
 
             sortClause1 = sortClause1[:0] + " order by " + sortClause1[0:]
             sortClause1 += "p.product_id asc"
-    proQuery = "select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where %s and i.img_type like 'P' %s" % (smart_str(whereClause1), smart_str(sortClause1))
+    #TODO change the image like to 'P'
+    proQuery = "select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where %s and i.img_type like 'S' %s" % (smart_str(whereClause1), smart_str(sortClause1))
     cursor1 = connection.cursor()
     cursor1.execute(proQuery)
     prod_result = cursor1.fetchall()
