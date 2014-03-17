@@ -57,6 +57,9 @@ def getPIDFromText(inputParams, start, rows):
     #url = "http://192.168.56.101/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
     #this for product environment
     url = "http://visebuy.cloudapp.net:8983/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
+
+    print "reach here, debug"
+
     buf = cStringIO.StringIO()
     c = pycurl.Curl()
     c.setopt(pycurl.URL, smart_str(urllib.unquote(url).encode('utf8')))

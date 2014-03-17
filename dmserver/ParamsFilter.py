@@ -150,6 +150,8 @@ def doFilter(request):
     prod_result = cursor1.fetchall()
     result_json = formatParamsFilterJson(prod_result)
 
+    print "finish execution, debug"
+
     return HttpResponse(result_json)
 
 def formatParamsFilterJson(query_results):
