@@ -51,7 +51,7 @@ def DetailProdByPidPost(request):
         return HttpResponse("Invalid request, pid is missing")
     proID = request.POST['pid']
     #proID = 91007112819
-    prod_query = "select p.product_id, p.name, p.price, p.description, p.product_url, p.brand, p.merchant, p.color, c.cid, c.name, i.pic_path, i.img_id from (products as p left join categories as c on p.cid=c.cid) left join images as i on p.product_id=i.product_id where p.product_id = %s order by i.img_type asc" % (str(proID))
+    prod_query = "select p.product_id, p.name, p.price, p.description, p.product_url, p.brand, p.merchant, p.color, c.cid, c.name, i.pic_url, i.img_id from (products as p left join categories as c on p.cid=c.cid) left join images as i on p.product_id=i.product_id where p.product_id = %s order by i.img_type asc" % (str(proID))
     cursor1 = connection.cursor()
     cursor1.execute(prod_query)
     prod_result = cursor1.fetchall()
@@ -67,9 +67,9 @@ def DetailProdByPidPost(request):
         if rowsNum > 4:
             offset = int(math.floor(random.random()*(rowsNum-4)))
 
-        recommended_query = "select p.product_id, p.name, p.price, p.cid, i.pic_path, i.img_id from products as p left join images as i on p.product_id=i.product_id where p.product_id!= %s and p.cid = %s and i.img_type='P' limit %s, 4"
+        recommended_query = "select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where p.product_id!= %s and p.cid = %s and i.img_type='P' limit %s, 4"
         cursor2 = connection.cursor()
-        query_string = 'select p.product_id, p.name, p.price, p.cid, i.pic_path, i.img_id from products as p left join images as i on p.product_id=i.product_id where p.product_id!= %s and p.cid = %s and i.img_type="P" limit %s, 4' % (str(proID), str(catID), str(offset))
+        query_string = 'select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where p.product_id!= %s and p.cid = %s and i.img_type="P" limit %s, 4' % (str(proID), str(catID), str(offset))
         cursor2.execute(query_string)
         recommend_result = cursor2.fetchall()
         recommend_result_formatted_dict = formatRecommendJson(recommend_result)

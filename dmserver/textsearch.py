@@ -31,8 +31,7 @@ def debugTextSearch(request):
 def getIDfromText(inputParams, start, rows):
     #this is for local environment
     #url = "http://192.168.56.101/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
-    url = "" \
-          "/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
+    url = "http://visebuy.cloudapp.net:8983/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
     buf = cStringIO.StringIO()
     c = pycurl.Curl()
     c.setopt(c.URL, url)
