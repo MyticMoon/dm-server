@@ -152,6 +152,7 @@ def doFilter(request):
 
     print "finish execution, debug"
 
+
     print result_json
 
     return HttpResponse(result_json)
