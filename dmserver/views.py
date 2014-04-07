@@ -110,7 +110,6 @@ def formatProDetailJson(query_results, recommend_result):
 
 def formatRecommendJson(query_results):
     #recommendXML = ProductID,ProductName,ProductPrice,CatID,ProductImage,ProductImageID
-
     recommend_product = [{'ProductID': result[0],
                           'ProductName': result[1],
                           'ProductPrice': str(result[2]),
