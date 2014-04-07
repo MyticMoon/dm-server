@@ -24,7 +24,6 @@ def isLeaf(catStr):
 @csrf_exempt
 def doFilter(request):
     response = None
-    #if request.request.GET.get('catid') is not None:
     catID = request.GET.get('catid', None)
     topCategory = request.GET.get('topcategory', None)  # primKey always store pid value
     category = request.GET.get('category', None)  # secKey stores value for sort field, must be null if there is no sorting

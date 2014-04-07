@@ -56,7 +56,7 @@ Can rename the models but dont rename bb_table values or field balues
 You will have to insert output of 'django-admin.py sqlcustom [appname] to your database'
 
 IV) Image Search
-APIkey: 6cDgWkHEfqnFFgw13oqq6XBiKXxrqC0ZtPbaIChP4uc
+APIkey: H2e3UZ28Ng6xgcHLYVhmcr8jEQ7TftCgmCIrX6OoltY
 
 
 V) Test the Params Filter, by taking the URL from the old visebuy website:

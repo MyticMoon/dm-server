@@ -17,10 +17,10 @@ def viewHomePage(request):
 
 @csrf_exempt
 def categoriesDoPost(request):
-    #no_of_categories = Categories.objects.all().count()
-    #product_id = request.POST['productid']
-    catID = request.POST['catid']
-    #catID = 103
+    if request.method == "POST":
+        catID = request.POST['catid']
+    else:
+        catID = request.GET['catid']
     cat_result = None
     json_result = None
     cat_json = None
@@ -45,18 +45,16 @@ def formatCategoryJson(query_results):
 @csrf_exempt
 def DetailProdByPidPost(request):
     proID = None;
-    if request.method != "POST":
-        return HttpResponse("Invalid request")
-    if request.POST['pid'] == None:
+    if request.method == "POST":
+        proID = request.POST.get('pid',None)
+    else:
+        proID = request.GET.get('pid',None)
+    if proID == None:
         return HttpResponse("Invalid request, pid is missing")
-    proID = request.POST['pid']
-    #proID = 91007112819
     prod_query = "select p.product_id, p.name, p.price, p.description, p.product_url, p.brand, p.merchant, p.color, c.cid, c.name, i.pic_url, i.img_id from (products as p left join categories as c on p.cid=c.cid) left join images as i on p.product_id=i.product_id where p.product_id = %s order by i.img_type asc" % (str(proID))
     cursor1 = connection.cursor()
     cursor1.execute(prod_query)
     prod_result = cursor1.fetchall()
-
-    #prod_filter_results = list(Products.objects.filter(product_id=proID))
 
     if len(prod_result) >= 1:
         catID = prod_result[0][8]
@@ -127,8 +125,8 @@ def formatRecommendJson(query_results):
 
 @csrf_exempt
 def categoriesListing(request):
-    if request.method != 'POST':
-        return HttpResponse('Bad Http Request')
+    # if request.method != 'POST':
+    #     return HttpResponse('Bad Http Request')
     categoriesListingQuery = "select cid, name, parent_cid, is_parent from categories"
     cursor2 = connection.cursor()
     cursor2.execute(categoriesListingQuery)
