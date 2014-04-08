@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import models
 import textsearch
 import Filters
+import NewFilter
 from django.views.decorators.csrf import csrf_exempt
 from django.db import connection
 import json
@@ -115,7 +116,7 @@ def doFilter(request):
         else:
             return HttpResponse("This is bad request")
 
-    filters = Filters.Filters()
+    filters = NewFilter.NewFilter()
 
     filters.SetFilterQuery(filterString, filterSelection, page)
     #TODO need to check this part
@@ -124,8 +125,8 @@ def doFilter(request):
         return HttpResponse("Bad request")
     #request.GET["filterSelection"] = filterSelection
     if filters.whereClause is not None:
-        whereClause1 += filters.whereClause
-        whereClause2 += filters.whereClause
+        whereClause1 += unicode(filters.whereClause)
+        whereClause2 += unicode(filters.whereClause)
     if filters.sortClause is not None:
         sortClause1 += filters.sortClause
         sortClause2 += filters.sortClause
@@ -144,6 +145,7 @@ def doFilter(request):
 
     #TODO there is a "limit ?" in proQuery but I can't find the usage of it
     proQuery = "select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where %s and i.img_type like 'P' %s" % (smart_str(whereClause1), smart_str(sortClause1))
+
     cursor1 = connection.cursor()
     cursor1.execute(proQuery)
     prod_result = cursor1.fetchall()
