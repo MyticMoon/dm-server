@@ -39,25 +39,24 @@ class NewFilter:
                         if twoColorsSelected:
                             self.whereClause += " and sec_color_12_value>0.2"
                         self.sortClause += "(0.7*pri_color_12_value+0.3*sec_color_12_value) desc, "
+                    elif filter[0].lower() == "text":
+                        start = str(500*page-500)
+                        listFinal = []
+                        hash = textsearch.getPIDFromText(smart_str(filter[1]), start, "500")  # dictionary is a hash table
+                        if hash is not None:
+                            # convert the dictionary to string
+                            # TODO modify this part
+                            productIDs = None
+                            productIDs = ",".join(hash)
+                            self.whereClause += " and p.product_id in (" + productIDs + ")"
                     else:
-                        if filter[0].lower() == "text":
-                            start = str(500*page-500)
-                            listFinal = []
-                            hash = textsearch.getPIDFromText(smart_str(filter[1]), start, "500")  # dictionary is a hash table
-                            if hash is not None:
-                                # convert the dictionary to string
-                                # TODO modify this part
-                                productIDs = None
-                                productIDs = ",".join(hash)
-                                self.whereClause += " and p.product_id in (" + productIDs + ")"
-                            else:
-                                if filter[0].lower() == "style":
-                                    self.whereClause += " and " + filter[0] + " like '%" + filter[1] + "%'"
-                                else:
-                                    if filter[1].contains("+"):
-                                        filter[1].replace("+", " ")
-                                        self.whereClause += " and " + filter[0] + "='" + filter[1] + "'"
-                                if filter[0] in filterSelectionSet:
-                                    filterSelectionSet.remove(filter[0])
+                        if filter[0].lower() == "style":
+                            self.whereClause += " and " + filter[0] + " like '%" + filter[1] + "%'"
                         else:
-                            error = True
+                            if filter[1].contains("+"):
+                                filter[1].replace("+", " ")
+                                self.whereClause += " and " + filter[0] + "='" + filter[1] + "'"
+                        if filter[0] in filterSelectionSet:
+                            filterSelectionSet.remove(filter[0])
+                else:
+                    error = True
