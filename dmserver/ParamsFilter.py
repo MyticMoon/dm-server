@@ -101,8 +101,8 @@ def doFilter(request):
         if len(sort) == 2 and sort[0] in sortMap:
             #request.GET["sortField"] = sort[0]
             if "desc" == sort[1]:
-                sortClause1 += " desc, "
-                sortClause2 += " asc, "
+                sortClause1 += sort[0] + " desc, "
+                sortClause2 += sort[0] + " asc, "
                 if primKey is not None:
                     whereClause1 += " and (" + sort[0] + "=" + secKey + " and p.product_id>=" + primKey + " or " + sort[0] + "<" + secKey + ")"
                     whereClause2 += " and (" + sort[0] + "=" + secKey + " and p.product_id<" + primKey + " or " + sort[0] + ">" + secKey + ")"

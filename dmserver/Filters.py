@@ -22,6 +22,8 @@ class Filters():
                 twoColorsSelected = False
                 filter = Items.split(":")
                 if len(filter) == 2:
+                    if filter[0].lower() == "gender":
+                        Filters.whereClause += " and gender = " + filter[1]
                     if filter[0].lower() == "color":
                         colorValues = filter[1].split(",")
                         if len(colorValues) == 4:
