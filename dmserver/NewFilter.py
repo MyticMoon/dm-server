@@ -52,9 +52,9 @@ class NewFilter:
                     else:
                         if filter[0].lower() == "style":
                             self.whereClause += " and " + filter[0] + " like '%" + filter[1] + "%'"
-                        else:
-                            if filter[1].contains("+"):
-                                filter[1].replace("+", " ")
+                        elif filter[0].lower() != "gender" :
+                            if str(filter[1]).contains("+"):
+                                str(filter[1]).replace("+", " ")
                                 self.whereClause += " and " + filter[0] + "='" + filter[1] + "'"
                         if filter[0] in filterSelectionSet:
                             filterSelectionSet.remove(filter[0])

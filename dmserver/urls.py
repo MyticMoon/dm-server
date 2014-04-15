@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^imagelisting', views.returnImageList, name='categoriesListing'),
     url(r'^indeximage', indexImage.receiveIndexedImage, name='indexedImage'),
     url(r'^imagesearch', indexImage.imageQueryRequest, name='imageSearch'),
+    url(r'^api-overview', views.apiOverview, name='api-overview'),
 )

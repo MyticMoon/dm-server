@@ -15,6 +15,10 @@ def viewHomePage(request):
     return render(request, 'homepage.html')
 
 
+def apiOverview(request):
+    return render(request, 'apioverview.html')
+
+
 @csrf_exempt
 def categoriesDoPost(request):
     if request.method == "POST":
