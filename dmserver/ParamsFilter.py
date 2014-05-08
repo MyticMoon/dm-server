@@ -144,7 +144,7 @@ def doFilter(request):
         request.GET["sortClause2"] = sortClause2
 
     #TODO there is a "limit ?" in proQuery but I can't find the usage of it
-    proQuery = "select p.product_id, p.name, p.price, p.cid, i.pic_path, i.img_id from products as p left join images as i on p.product_id=i.product_id where %s and i.img_type like 'P' %s limit 100" % (smart_str(whereClause1), smart_str(sortClause1))
+    proQuery = "select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where %s and i.img_type like 'P' %s limit 100" % (smart_str(whereClause1), smart_str(sortClause1))
 
     cursor1 = connection.cursor()
     cursor1.execute(proQuery)

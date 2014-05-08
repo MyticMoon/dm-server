@@ -2,3 +2,4 @@
 2) Image for category listing
 3) Include limit for all the search
 4) Can't sort by desc order
+5) Fix search by chinese text
