@@ -150,12 +150,6 @@ def doFilter(request):
     cursor1.execute(proQuery)
     prod_result = cursor1.fetchall()
     result_json = formatParamsFilterJson(prod_result)
-
-    # print "finish execution, debug"
-
-
-    # print result_json
-
     return HttpResponse(result_json)
 
 def formatParamsFilterJson(query_results):
@@ -175,35 +169,15 @@ def formatParamsFilterJson(query_results):
                                 }])
     return json_file
 
-# def formatProDetailJson(query_results, recommend_result):
-#     #profield = ProductID,ProductName,ProductPrice,ProductDesc,ProductURL,ProductBrand,ProductMerchant,ProductColor,CatID,CatName
-#     delete = 'this'
-#     prod_json = [{'ProductID': query_results[0][0],
-#                 'ProductName': query_results[0][1],
-#                 'ProductPrice': str(query_results[0][2]),
-#                 'ProductDesc': query_results[0][3],
-#                 'ProductURL': query_results[0][4],
-#                 'ProductBrand': query_results[0][5],
-#                 'ProductMerchant': query_results[0][6],
-#                 'ProductColor': query_results[0][7],
-#                 'CatID': query_results[0][8],
-#                 'CatName': query_results[0][9]}]
-#
-#     new_image_json = []
-#     for index in range(len(query_results)):
-#         if index == 0:
-#             new_image_json.extend([{'PrimaryImage': query_results[index][10]+str(query_results[index][11])}])
-#         else:
-#             new_image_json.extend([{'VariantImage': query_results[index][10]+str(query_results[index][11])}])
-#
-#
-#
-#     json_file = json.dumps([{'Result': {'ResultType': 'productdetails'},
-#                              'Output': {'Product': prod_json,
-#                                         'ProductImage': new_image_json,
-#                                         'Recommendation': recommend_result},
-#                              }])
-#     return json_file
+@csrf_exempt
+def getProductsFromImagesId(request):
+    imgsID = request.GET.get('imgsid', None)
+    proQuery = "select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where i.img_id in (%s) and i.img_type like 'P' limit 100" % (imgsID)
+    cursor1 = connection.cursor()
+    cursor1.execute(proQuery)
+    prod_result = cursor1.fetchall()
+    result_json = formatParamsFilterJson(prod_result)
+    return HttpResponse(result_json)
 
 
 def debugIsLeaf(request):

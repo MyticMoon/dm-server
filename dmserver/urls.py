@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^indeximage', indexImage.receiveIndexedImage, name='indexedImage'),
     url(r'^imagesearch', indexImage.imageQueryRequest, name='imageSearch'),
     url(r'^api-overview', views.apiOverview, name='api-overview'),
+    url(r'^productfromimgid', ParamsFilter.getProductsFromImagesId, name='getProductFromImagesID'),
 )
