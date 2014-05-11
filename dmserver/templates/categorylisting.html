@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+    <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <title>Api overview | API Docs | Face++</title>
+        <meta charset="utf-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=1180, initial-scale=1.0">
+        <link rel="stylesheet" href="http://www.faceplusplus.com/wp-content/themes/faceplusplus/assets/css/all.css?v=2">
+        <link rel="stylesheet" href="http://www.faceplusplus.com/wp-content/themes/faceplusplus/assets/css/theme/light/all.css?v=2">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400">
+        <script src="http://www.faceplusplus.com/wp-content/themes/faceplusplus/assets/js/modernizr.min.js?v=2"></script>
+
+        <link rel="alternate" type="application/rss+xml" title="Face++ &raquo; Api overview Comments Feed" href="http://www.faceplusplus.com/api-overview/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.faceplusplus.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.faceplusplus.com/wp-includes/wlwmanifest.xml" />
+<link rel='prev' title='世纪佳缘推出“最佳伴侣”借人脸识别精准匹配' href='http://www.faceplusplus.com/sjiyzjbl/' />
+<link rel='next' title='/detection/detect' href='http://www.faceplusplus.com/detection_detect/' />
+<meta name="generator" content="WordPress 3.7.1" />
+<link rel='shortlink' href='http://www.faceplusplus.com/?p=74' />
+
+<!-- All in One SEO Pack 2.0.4.1 by Michael Torbert of Semper Fi Web Design[-1,-1] -->
+<meta name="description" content="API Overview API Names API Funtions detect /detection/detect Detect the information of the given photo(e.g. face location, age, race," />
+
+<link rel="canonical" href="http://www.faceplusplus.com/api-overview/" />
+<!-- /all in one seo pack -->
+    </head>
+    <body>
+        <div id="page-wrap">
+<div id="main-content" class="g-container">
+    <div class="g-row g-equal-height">
+        <div class="g-span-4">
+            <nav class="nav-sidebar tree-style"><ul><li><h3>API Overview</h3><ul><li><a class="active" href="/dmserver/api-overview/">API Overview</a></li></ul></li><li><h3>Sub-categories</h3><ul><li><a href="/dmserver/api-subcategories/">/dmserver/categories/</a></li></ul></li><li><h3>Product Detail</h3><ul><li><a href="/dmserver/api-detailproduct/">/dmserver/detailproduct/</a></li></ul></li><li><h3>All Categories</h3><ul><li><a href="/dmserver/api-categorylisting/">/dmserver/categorylisting/</a></li></ul></li><li><h3>Parameters Search</h3><ul><li><a href="/dmserver/api-parametersearch/">/dmserver/debugparamsfilter/</a></li></ul></li><li><h3>Query by Image</h3><ul><li><a href="/dmserver/api-imagesearch/">/dmserver/imagesearch/</a></li></ul></li></ul></nav>        </div>
+        <div class="g-span-8 api-doc">
+            <h1>/dmserver/categorylisitng</h1>
+<h2>Description</h2>
+<div class="description">
+
+Return categories and sub-categories
+
+</div>
+<h2>Parameter</h2>
+<table class="param-table table-styled">
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="param-type">Required</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<h2>Parameter</h2>
+<div class="example">http://visebuy.cloudapp.net:8080/dmserver/categories/?catid=103</div>
+<h2>JSON Response</h2>
+<pre class="response"><code>[{"Output": [{"Categories": [{"Parent_CID": -1, "CategoryID": 0, "Is_Parent": 1, "Name": "-"}], "ParentID": "-1"}, {"Categories": [{"Parent_CID": 0, "CategoryID": 1, "Is_Parent": 1, "Name": "\u7537"}, {"Parent_CID": 0, "CategoryID": 2, "Is_Parent": 1, "Name": "\u5973"}, {"Parent_CID": 0, "CategoryID": 3, "Is_Parent": 1, "Name": "\u7537/\u5973"}], "ParentID": "0"}, {"Categories": [{"Parent_CID": 1, "CategoryID": 103, "Is_Parent": 1, "Name": "\u978b"}], "ParentID": "1"}, {"Categories": [{"Parent_CID": 2, "CategoryID": 205, "Is_Parent": 1, "Name": "\u978b"}], "ParentID": "2"}, {"Categories": [{"Parent_CID": 3, "CategoryID": 303, "Is_Parent": 1, "Name": "\u978b"}], "ParentID": "3"}, {"Categories": [{"Parent_CID": 103, "CategoryID": 10300, "Is_Parent": 0, "Name": "\u8d5b\u8f66\u978b"}, {"Parent_CID": 103, "CategoryID": 10301, "Is_Parent": 0, "Name": "\u4f4e\u5e2e\u978b"}, {"Parent_CID": 103, "CategoryID": 10302, "Is_Parent": 1, "Name": "\u65e5\u5e38\u4f11\u95f2\u978b"}, {"Parent_CID": 103, "CategoryID": 10303, "Is_Parent": 1, "Name": "\u51c9\u978b/\u51c9\u62d6"}, {"Parent_CID": 103, "CategoryID": 10304, "Is_Parent": 1, "Name": "\u9774\u5b50/\u9ad8\u5e2e\u978b"}, {"Parent_CID": 103, "CategoryID": 10305, "Is_Parent": 1, "Name": "\u5546\u52a1\u4f11\u95f2\u978b"}, {"Parent_CID": 103, "CategoryID": 10306, "Is_Parent": 1, "Name": "\u5546\u52a1\u76ae\u978b"}, {"Parent_CID": 103, "CategoryID": 10307, "Is_Parent": 1, "Name": "\u5176\u4ed6"}], "ParentID": "103"}, {"Categories": [{"Parent_CID": 205, "CategoryID": 20500, "Is_Parent": 0, "Name": "\u4f4e\u5e2e\u978b"}, {"Parent_CID": 205, "CategoryID": 20501, "Is_Parent": 1, "Name": "\u5355\u978b"}, {"Parent_CID": 205, "CategoryID": 20502, "Is_Parent": 1, "Name": "\u51c9\u978b/\u51c9\u62d6"}, {"Parent_CID": 205, "CategoryID": 20503, "Is_Parent": 1, "Name": "\u5e06\u5e03\u978b/\u7279\u8272\u978b"}, {"Parent_CID": 205, "CategoryID": 20504, "Is_Parent": 1, "Name": "\u9ad8\u5e2e\u978b"}], "ParentID": "205"}, {"Categories": [{"Parent_CID": 303, "CategoryID": 30300, "Is_Parent": 1, "Name": "\u8fd0\u52a8\u978b"}, {"Parent_CID": 303, "CategoryID": 30301, "Is_Parent": 1, "Name": "\u6237\u5916\u978b"}], "ParentID": "303"}, {"Categories": [{"Parent_CID": 10302, "CategoryID": 1030200, "Is_Parent": 0, "Name": "\u7cfb\u5e26\u6b3e\u5f0f"}, {"Parent_CID": 10302, "CategoryID": 1030201, "Is_Parent": 0, "Name": "\u61d2\u4eba\u5957\u5f0f"}, {"Parent_CID": 10302, "CategoryID": 1030202, "Is_Parent": 0, "Name": "\u9b54\u672f\u8d34\u5f0f"}, {"Parent_CID": 10302, "CategoryID": 1030203, "Is_Parent": 0, "Name": "\u683c\u5b50\u56fe\u6848"}, {"Parent_CID": 10302, "CategoryID": 1030204, "Is_Parent": 0, "Name": "\u82f1\u4f26\u98ce\u683c"}, {"Parent_CID": 10302, "CategoryID": 1030205, "Is_Parent": 0, "Name": "\u5934\u5c42\u725b\u76ae"}, {"Parent_CID": 10302, "CategoryID": 1030206, "Is_Parent": 0, "Name": "\u4eba\u9020\u76ae\u9769"}, {"Parent_CID": 10302, "CategoryID": 1030207, "Is_Parent": 0, "Name": "\u7ecf\u5178\u4f11\u95f2"}, {"Parent_CID": 10302, "CategoryID": 1030208, "Is_Parent": 0, "Name": "\u642d\u6263\u6b3e\u5f0f"}, {"Parent_CID": 10302, "CategoryID": 1030209, "Is_Parent": 0, "Name": "\u5e06\u5e03\u978b"}], "ParentID": "10302"}, {"Categories": [{"Parent_CID": 10303, "CategoryID": 1030300, "Is_Parent": 0, "Name": "\u4eba\u5b57\u62d6"}, {"Parent_CID": 10303, "CategoryID": 1030301, "Is_Parent": 0, "Name": "\u9732\u8dbe\u51c9\u978b"}, {"Parent_CID": 10303, "CategoryID": 1030302, "Is_Parent": 0, "Name": "\u6237\u5916\u51c9\u978b"}, {"Parent_CID": 10303, "CategoryID": 1030303, "Is_Parent": 0, "Name": "\u771f\u76ae\u51c9\u978b"}, {"Parent_CID": 10303, "CategoryID": 1030304, "Is_Parent": 0, "Name": "\u6c99\u6ee9\u51c9\u978b"}, {"Parent_CID": 10303, "CategoryID": 1030305, "Is_Parent": 0, "Name": "\u6237\u5916\u62d6\u978b"}, {"Parent_CID": 10303, "CategoryID": 1030306, "Is_Parent": 0, "Name": "\u5546\u52a1\u51c9\u978b"}, {"Parent_CID": 10303, "CategoryID": 1030307, "Is_Parent": 0, "Name": "\u8f6f\u6728\u51c9\u978b"}, {"Parent_CID": 10303, "CategoryID": 1030308, "Is_Parent": 0, "Name": "\u8010\u78e8\u51c9\u978b"}, {"Parent_CID": 10303, "CategoryID": 1030309, "Is_Parent": 0, "Name": "\u5176\u4ed6"}], "ParentID": "10303"}, {"Categories": [{"Parent_CID": 10304, "CategoryID": 1030400, "Is_Parent": 0, "Name": "\u4f4e\u7b52\u9774\u6b3e"}, {"Parent_CID": 10304, "CategoryID": 1030401, "Is_Parent": 0, "Name": "\u771f\u76ae\u76ae\u978b"}, {"Parent_CID": 10304, "CategoryID": 1030402, "Is_Parent": 0, "Name": "\u4eba\u9020\u9769\u978b"}, {"Parent_CID": 10304, "CategoryID": 1030403, "Is_Parent": 0, "Name": "\u9ad8\u5e2e\u677f\u978b"}, {"Parent_CID": 10304, "CategoryID": 1030404, "Is_Parent": 0, "Name": "\u6237\u5916\u9774\u6b3e"}, {"Parent_CID": 10304, "CategoryID": 1030405, "Is_Parent": 0, "Name": "\u590d\u53e4\u978b\u6b3e"}, {"Parent_CID": 10304, "CategoryID": 1030406, "Is_Parent": 0, "Name": "\u4f11\u95f2\u9ad8\u5e2e"}, {"Parent_CID": 10304, "CategoryID": 1030408, "Is_Parent": 0, "Name": "\u5176\u4ed6"}], "ParentID": "10304"}, {"Categories": [{"Parent_CID": 10305, "CategoryID": 1030500, "Is_Parent": 0, "Name": "\u7cfb\u5e26\u4f11\u95f2"}, {"Parent_CID": 10305, "CategoryID": 1030501, "Is_Parent": 0, "Name": "\u5957\u811a\u4f11\u95f2"}, {"Parent_CID": 10305, "CategoryID": 1030502, "Is_Parent": 0, "Name": "\u5934\u5c42\u725b\u76ae"}, {"Parent_CID": 10305, "CategoryID": 1030503, "Is_Parent": 0, "Name": "\u8f66\u7f1d\u7ebf\u6b3e"}, {"Parent_CID": 10305, "CategoryID": 1030505, "Is_Parent": 0, "Name": "\u8f6f\u9762\u76ae\u6b3e"}, {"Parent_CID": 10305, "CategoryID": 1030506, "Is_Parent": 0, "Name": "\u82f1\u4f26\u98ce\u8303"}, {"Parent_CID": 10305, "CategoryID": 1030507, "Is_Parent": 0, "Name": "\u5706\u5934\u76ae\u978b"}], "ParentID": "10305"}, {"Categories": [{"Parent_CID": 10306, "CategoryID": 1030600, "Is_Parent": 0, "Name": "\u5957\u811a"}, {"Parent_CID": 10306, "CategoryID": 1030601, "Is_Parent": 0, "Name": "\u7cfb\u5e26"}, {"Parent_CID": 10306, "CategoryID": 1030602, "Is_Parent": 0, "Name": "\u6f06\u76ae"}, {"Parent_CID": 10306, "CategoryID": 1030603, "Is_Parent": 0, "Name": "\u5706\u5934"}, {"Parent_CID": 10306, "CategoryID": 1030604, "Is_Parent": 0, "Name": "\u5c16\u5934"}, {"Parent_CID": 10306, "CategoryID": 1030605, "Is_Parent": 0, "Name": "\u65b9\u5934"}, {"Parent_CID": 10306, "CategoryID": 1030606, "Is_Parent": 0, "Name": "\u6241\u5934"}, {"Parent_CID": 10306, "CategoryID": 1030607, "Is_Parent": 0, "Name": "\u610f\u5927\u5229\u7ecf\u5178"}], "ParentID": "10306"}, {"Categories": [{"Parent_CID": 10307, "CategoryID": 1030700, "Is_Parent": 0, "Name": "\u96e8\u978b"}], "ParentID": "10307"}, {"Categories": [{"Parent_CID": 20501, "CategoryID": 2050100, "Is_Parent": 0, "Name": "\u5e73\u8ddf"}, {"Parent_CID": 20501, "CategoryID": 2050101, "Is_Parent": 0, "Name": "\u4f4e\u8ddf"}, {"Parent_CID": 20501, "CategoryID": 2050102, "Is_Parent": 0, "Name": "\u4e2d\u8ddf"}, {"Parent_CID": 20501, "CategoryID": 2050103, "Is_Parent": 0, "Name": "\u9ad8\u8ddf"}, {"Parent_CID": 20501, "CategoryID": 2050104, "Is_Parent": 0, "Name": "\u8d85\u9ad8\u8ddf"}, {"Parent_CID": 20501, "CategoryID": 2050105, "Is_Parent": 0, "Name": "\u5761\u8ddf"}, {"Parent_CID": 20501, "CategoryID": 2050106, "Is_Parent": 0, "Name": "\u7ec6\u8ddf"}, {"Parent_CID": 20501, "CategoryID": 2050107, "Is_Parent": 0, "Name": "\u5c16\u5934"}, {"Parent_CID": 20501, "CategoryID": 2050108, "Is_Parent": 0, "Name": "\u5706\u5934"}, {"Parent_CID": 20501, "CategoryID": 2050109, "Is_Parent": 0, "Name": "\u6c34\u94bb"}, {"Parent_CID": 20501, "CategoryID": 2050110, "Is_Parent": 0, "Name": "\u7cd6\u679c"}, {"Parent_CID": 20501, "CategoryID": 2050111, "Is_Parent": 0, "Name": "OL\u804c\u4e1a"}, {"Parent_CID": 20501, "CategoryID": 2050112, "Is_Parent": 0, "Name": "\u5176\u4ed6"}], "ParentID": "20501"}, {"Categories": [{"Parent_CID": 20502, "CategoryID": 2050200, "Is_Parent": 0, "Name": "\u5e73\u8ddf"}, {"Parent_CID": 20502, "CategoryID": 2050201, "Is_Parent": 0, "Name": "\u4f4e\u8ddf"}, {"Parent_CID": 20502, "CategoryID": 2050202, "Is_Parent": 0, "Name": "\u4e2d\u8ddf"}, {"Parent_CID": 20502, "CategoryID": 2050203, "Is_Parent": 0, "Name": "\u9ad8\u8ddf"}, {"Parent_CID": 20502, "CategoryID": 2050204, "Is_Parent": 0, "Name": "\u9732\u8dbe\u6b3e"}, {"Parent_CID": 20502, "CategoryID": 2050205, "Is_Parent": 0, "Name": "\u9c7c\u5634\u6b3e"}, {"Parent_CID": 20502, "CategoryID": 2050206, "Is_Parent": 0, "Name": "\u4eba\u5b57\u62d6"}, {"Parent_CID": 20502, "CategoryID": 2050207, "Is_Parent": 0, "Name": "\u7f57\u9a6c"}, {"Parent_CID": 20502, "CategoryID": 2050208, "Is_Parent": 0, "Name": "\u9632\u6c34\u53f0"}, {"Parent_CID": 20502, "CategoryID": 2050209, "Is_Parent": 0, "Name": "\u9542\u7a7a\u6b3e"}, {"Parent_CID": 20502, "CategoryID": 2050210, "Is_Parent": 0, "Name": "\u8774\u8776\u7ed3"}, {"Parent_CID": 20502, "CategoryID": 2050211, "Is_Parent": 0, "Name": "\u6dd1\u5973"}, {"Parent_CID": 20502, "CategoryID": 2050212, "Is_Parent": 0, "Name": "\u5176\u4ed6"}], "ParentID": "20502"}, {"Categories": [{"Parent_CID": 20503, "CategoryID": 2050300, "Is_Parent": 0, "Name": "\u9ad8\u5e2e\u978b"}, {"Parent_CID": 20503, "CategoryID": 2050301, "Is_Parent": 0, "Name": "\u4f4e\u5e2e\u978b"}, {"Parent_CID": 20503, "CategoryID": 2050302, "Is_Parent": 0, "Name": "\u683c\u5b50\u978b"}, {"Parent_CID": 20503, "CategoryID": 2050303, "Is_Parent": 0, "Name": "\u5185\u589e\u9ad8"}, {"Parent_CID": 20503, "CategoryID": 2050304, "Is_Parent": 0, "Name": "\u8857\u5934\u978b"}, {"Parent_CID": 20503, "CategoryID": 2050305, "Is_Parent": 0, "Name": "\u642d\u6263\u978b"}, {"Parent_CID": 20503, "CategoryID": 2050306, "Is_Parent": 0, "Name": "\u9b54\u672f\u8d34"}, {"Parent_CID": 20503, "CategoryID": 2050307, "Is_Parent": 0, "Name": "\u6b27\u7f8e\u8303"}, {"Parent_CID": 20503, "CategoryID": 2050308, "Is_Parent": 0, "Name": "\u65e5\u97e9\u7cfb"}, {"Parent_CID": 20503, "CategoryID": 2050309, "Is_Parent": 0, "Name": "\u6c14\u8d28\u540d\u5a9b"}, {"Parent_CID": 20503, "CategoryID": 2050310, "Is_Parent": 0, "Name": "\u8001\u5317\u4eac\u5e03\u978b"}, {"Parent_CID": 20503, "CategoryID": 2050311, "Is_Parent": 0, "Name": "\u5176\u4ed6"}], "ParentID": "20503"}, {"Categories": [{"Parent_CID": 20504, "CategoryID": 2050400, "Is_Parent": 0, "Name": "\u5e73\u8ddf"}, {"Parent_CID": 20504, "CategoryID": 2050401, "Is_Parent": 0, "Name": "\u5185\u589e\u9ad8"}, {"Parent_CID": 20504, "CategoryID": 2050402, "Is_Parent": 0, "Name": "\u4f11\u95f2"}, {"Parent_CID": 20504, "CategoryID": 2050404, "Is_Parent": 0, "Name": "\u590d\u53e4\u978b"}, {"Parent_CID": 20504, "CategoryID": 2050405, "Is_Parent": 0, "Name": "\u4e2d\u6027\u6b3e"}, {"Parent_CID": 20504, "CategoryID": 2050406, "Is_Parent": 0, "Name": "\u771f\u76ae\u978b"}, {"Parent_CID": 20504, "CategoryID": 2050407, "Is_Parent": 0, "Name": "\u5408\u6210\u9769"}, {"Parent_CID": 20504, "CategoryID": 2050409, "Is_Parent": 0, "Name": "\u5176\u4ed6"}], "ParentID": "20504"}, {"Categories": [{"Parent_CID": 30300, "CategoryID": 3030000, "Is_Parent": 0, "Name": "\u7bee\u7403\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030001, "Is_Parent": 0, "Name": "\u677f\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030002, "Is_Parent": 0, "Name": "\u8dd1\u6b65\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030003, "Is_Parent": 0, "Name": "\u8bad\u7ec3\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030004, "Is_Parent": 0, "Name": "\u7f51\u7403\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030005, "Is_Parent": 0, "Name": "\u8db3\u7403\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030006, "Is_Parent": 0, "Name": "\u4f11\u95f2\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030007, "Is_Parent": 0, "Name": "\u674e\u5b81\u5f13"}, {"Parent_CID": 30300, "CategoryID": 3030009, "Is_Parent": 0, "Name": "\u5f92\u6b65\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030010, "Is_Parent": 0, "Name": "\u7ecf\u5178\u6b3e"}, {"Parent_CID": 30300, "CategoryID": 3030011, "Is_Parent": 0, "Name": "\u4f4e\u5e2e\u677f\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030012, "Is_Parent": 0, "Name": "\u9ad8\u5e2e\u677f\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030014, "Is_Parent": 0, "Name": "\u5f6a\u9a6c"}, {"Parent_CID": 30300, "CategoryID": 3030015, "Is_Parent": 0, "Name": "\u4e09\u53f6\u8349"}, {"Parent_CID": 30300, "CategoryID": 3030016, "Is_Parent": 0, "Name": "\u5361\u5e15"}, {"Parent_CID": 30300, "CategoryID": 3030017, "Is_Parent": 0, "Name": "\u7279\u6b65"}, {"Parent_CID": 30300, "CategoryID": 3030018, "Is_Parent": 0, "Name": "\u5065\u7f8e\u64cd\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030019, "Is_Parent": 0, "Name": "\u8857\u821e\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030020, "Is_Parent": 0, "Name": "\u809a\u76ae\u821e\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030021, "Is_Parent": 0, "Name": "\u9ad8\u5c14\u592b\u978b"}, {"Parent_CID": 30300, "CategoryID": 3030022, "Is_Parent": 0, "Name": "ZOOM\u7cfb\u5217"}, {"Parent_CID": 30300, "CategoryID": 3030024, "Is_Parent": 0, "Name": "Air Max"}, {"Parent_CID": 30300, "CategoryID": 3030025, "Is_Parent": 0, "Name": "Nike FREE\u7cfb\u5217"}, {"Parent_CID": 30300, "CategoryID": 3030026, "Is_Parent": 0, "Name": "ClimaCool\u7cfb\u5217"}, {"Parent_CID": 30300, "CategoryID": 3030027, "Is_Parent": 0, "Name": "Adizero"}, {"Parent_CID": 30300, "CategoryID": 3030028, "Is_Parent": 0, "Name": "DUNK"}, {"Parent_CID": 30300, "CategoryID": 3030029, "Is_Parent": 0, "Name": "Air Force"}, {"Parent_CID": 30300, "CategoryID": 3030030, "Is_Parent": 0, "Name": "NIKE360"}, {"Parent_CID": 30300, "CategoryID": 3030031, "Is_Parent": 0, "Name": "361\u00b0"}, {"Parent_CID": 30300, "CategoryID": 3030032, "Is_Parent": 0, "Name": "\u5176\u4ed6"}], "ParentID": "30300"}], "Result": {"ResultType": "category_listing"}}]
+</code></pre>
+<h2>Error Code List</h2>
+<table class="error-table table-styled centered">
+<thead>
+<tr>
+<th>Error Code</th>
+<th>HTTP Status Code</th>
+<th>Error Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1001</td>
+<td>500</td>
+<td>INTERNAL_ERROR</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>403</td>
+<td>AUTHORIZATION_ERROR</td>
+</tr>
+</tbody>
+</table>        </div>
+    </div>
+</div>
+        <div class="footer-push"></div>
+        </div>
+    </body>
+</html>

@@ -14,10 +14,23 @@ import pycurl
 def viewHomePage(request):
     return render(request, 'homepage.html')
 
+def apiOverviewSubCategories(request):
+    return render(request, 'subcategories.html')
 
 def apiOverview(request):
     return render(request, 'apioverview.html')
 
+def apiOverviewCategoriesListing(request):
+    return render(request, 'categorylisting.html')
+
+def apiOverviewDetailProduct(request):
+    return render(request, 'detailproduct.html')
+
+def apiOverviewImageSearch(request):
+    return render(request, 'imagesearch.html')
+
+def apiOverviewParamsSearch(request):
+    return render(request, 'parametersearch.html')
 
 @csrf_exempt
 def categoriesDoPost(request):

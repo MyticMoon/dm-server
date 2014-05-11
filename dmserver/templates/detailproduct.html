@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+    <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <title>Api overview | API Docs | Face++</title>
+        <meta charset="utf-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=1180, initial-scale=1.0">
+        <link rel="stylesheet" href="http://www.faceplusplus.com/wp-content/themes/faceplusplus/assets/css/all.css?v=2">
+        <link rel="stylesheet" href="http://www.faceplusplus.com/wp-content/themes/faceplusplus/assets/css/theme/light/all.css?v=2">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400">
+        <script src="http://www.faceplusplus.com/wp-content/themes/faceplusplus/assets/js/modernizr.min.js?v=2"></script>
+
+        <link rel="alternate" type="application/rss+xml" title="Face++ &raquo; Api overview Comments Feed" href="http://www.faceplusplus.com/api-overview/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.faceplusplus.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.faceplusplus.com/wp-includes/wlwmanifest.xml" />
+<link rel='prev' title='世纪佳缘推出“最佳伴侣”借人脸识别精准匹配' href='http://www.faceplusplus.com/sjiyzjbl/' />
+<link rel='next' title='/detection/detect' href='http://www.faceplusplus.com/detection_detect/' />
+<meta name="generator" content="WordPress 3.7.1" />
+<link rel='shortlink' href='http://www.faceplusplus.com/?p=74' />
+
+<!-- All in One SEO Pack 2.0.4.1 by Michael Torbert of Semper Fi Web Design[-1,-1] -->
+<meta name="description" content="API Overview API Names API Funtions detect /detection/detect Detect the information of the given photo(e.g. face location, age, race," />
+
+<link rel="canonical" href="http://www.faceplusplus.com/api-overview/" />
+<!-- /all in one seo pack -->
+    </head>
+    <body>
+        <div id="page-wrap">
+<div id="main-content" class="g-container">
+    <div class="g-row g-equal-height">
+        <div class="g-span-4">
+            <nav class="nav-sidebar tree-style"><ul><li><h3>API Overview</h3><ul><li><a class="active" href="/dmserver/api-overview/">API Overview</a></li></ul></li><li><h3>Sub-categories</h3><ul><li><a href="/dmserver/api-subcategories/">/dmserver/categories/</a></li></ul></li><li><h3>Product Detail</h3><ul><li><a href="/dmserver/api-detailproduct/">/dmserver/detailproduct/</a></li></ul></li><li><h3>All Categories</h3><ul><li><a href="/dmserver/api-categorylisting/">/dmserver/categorylisting/</a></li></ul></li><li><h3>Parameters Search</h3><ul><li><a href="/dmserver/api-parametersearch/">/dmserver/debugparamsfilter/</a></li></ul></li><li><h3>Query by Image</h3><ul><li><a href="/dmserver/api-imagesearch/">/dmserver/imagesearch/</a></li></ul></li></ul></nav>        </div>
+        <div class="g-span-8 api-doc">
+            <h1>/dmserver/productdetail</h1>
+<h2>Description</h2>
+<div class="description">
+
+Return detail of a specific product given its id
+
+</div>
+<h2>Parameter</h2>
+<table class="param-table table-styled">
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="param-type">Required</td>
+<td>pid</td>
+<td>The id of the product</td>
+</tr>
+</tbody>
+</table>
+<h2>Parameter</h2>
+<div class="example">http://visebuy.cloudapp.net:8080/dmserver/detailproduct/?pid=98210918273</div>
+<h2>JSON Response</h2>
+<pre class="response"><code>[{"Output": {"ProductImage": [{"PrimaryImage": "http://img01.taobaocdn.com/bao/uploaded/i1/T1NllPXfVXXXXSaPQ8_101234.jpg185110"}], "Product": [{"ProductColor": "\u5176\u4ed6\u989c\u8272", "ProductURL": "item.taobao.com/item.htm?id=8210918273", "ProductPrice": "518.00", "ProductDesc": "-", "ProductMerchant": "\u7f51\u7403\u56ed\u5730", "ProductBrand": "\u5176\u4ed6\u54c1\u724c", "CatID": 3030004, "ProductName": "\u6b63\u54c1adidasBarricadeTeam\u5973\u58eb\u7f51\u7403\u978b2010\u6b3e", "CatName": "\u7f51\u7403\u978b", "ProductID": 98210918273}], "Recommendation": [{"ProductPrice": "188.00", "CatID": 3030004, "ProductName": "\u3010\u4e50\u5a01.\u4e13\u67dc\u6b63\u54c1\u3011\u767e\u5b9d\u529bBabolatDoubleLine\u7f51\u7403\u978b87601", "ProductImage": "http://img03.taobaocdn.com/bao/uploaded/i3/T1f6tLXXRKXXbS1.7V_021954.jpg", "ProductImageID": 142296, "ProductID": 97557759987}, {"ProductPrice": "220.00", "CatID": 3030004, "ProductName": "LINING\u674e\u5b81\u6b63\u54c1\u7537\u5b50\u7f51\u7403\u8bad\u7ec3\u978bATTE031-2", "ProductImage": "http://img05.taobaocdn.com/bao/uploaded/i5/T10iXKXhxNXXc6Tp3__104955.jpg", "ProductImageID": 142340, "ProductID": 97558407946}, {"ProductPrice": "194.00", "CatID": 3030004, "ProductName": "LINING\u674e\u5b81\u6b63\u54c1\u7537\u5b50\u7f51\u7403\u8bad\u7ec3\u978bATTE033-1", "ProductImage": "http://img02.taobaocdn.com/bao/uploaded/i2/T1JltKXd8aXXXweIZ._111558.jpg", "ProductImageID": 142343, "ProductID": 97558599542}, {"ProductPrice": "380.00", "CatID": 3030004, "ProductName": "\u25e3\u4e13\u67dc\u6b63\u54c1\u25e2PrinceOV-1\u9ad8\u7aef\u7f51\u7403\u978b8P961W-853", "ProductImage": "http://img03.taobaocdn.com/bao/uploaded/i3/T1EU0nXftqXXas3XA9_101959.jpg", "ProductImageID": 142469, "ProductID": 97560689827}]}, "Result": {"ResultType": "productdetails"}}]
+</code></pre>
+<h2>Error Code List</h2>
+<table class="error-table table-styled centered">
+<thead>
+<tr>
+<th>Error Code</th>
+<th>HTTP Status Code</th>
+<th>Error Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1001</td>
+<td>500</td>
+<td>INTERNAL_ERROR</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>403</td>
+<td>AUTHORIZATION_ERROR</td>
+</tr>
+</tbody>
+</table>        </div>
+    </div>
+</div>
+        <div class="footer-push"></div>
+        </div>
+    </body>
+</html>
