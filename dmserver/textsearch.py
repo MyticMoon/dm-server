@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import urllib
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -31,7 +32,7 @@ def debugTextSearch(request):
 def getIDfromText(inputParams, start, rows):
     #this is for local environment
     #url = "http://192.168.56.101/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
-    url = "http://visebuy.cloudapp.net:8983/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
+    url = "http://visebuy.cloudapp.net:8983/solr/collection1/select?q="+urllib.quote(inputParams.encode('utf-8'))+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
     buf = cStringIO.StringIO()
     c = pycurl.Curl()
     c.setopt(c.URL, url)
@@ -56,13 +57,12 @@ def getPIDFromText(inputParams, start, rows):
     #this for local
     #url = "http://192.168.56.101/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
     #this for product environment
-    url = "http://visebuy.cloudapp.net:8983/solr/collection1/select?q="+inputParams+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
-
-    print "reach here, debug"
+    #inputParams = inputParams.encode('utf-8')
+    url = "http://visebuy.cloudapp.net:8983/solr/collection1/select?q="+urllib.quote(inputParams.encode('utf-8'))+"&start="+start+"&rows="+rows+"&wt=json&indent=true"
 
     buf = cStringIO.StringIO()
     c = pycurl.Curl()
-    c.setopt(pycurl.URL, smart_str(urllib.unquote(url).encode('utf8')))
+    c.setopt(pycurl.URL, url)
     c.setopt(pycurl.HTTPGET, 1)
     c.setopt(pycurl.WRITEFUNCTION, buf.write)
     c.setopt(pycurl.CONNECTTIMEOUT, 10)
