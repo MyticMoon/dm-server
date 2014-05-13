@@ -8,6 +8,7 @@ from dmserver import indexImage
 urlpatterns = patterns('',
     url(r'^categories/', views.categoriesDoPost, name='categories'),
     url(r'^detailproduct/', views.DetailProdByPidPost, name='detailProd'),
+    url(r'^detailproduct2/', views.DetailProdByPidPost2, name='detailProd'),
     url(r'^homepage/', views.DetailProdByPidPost, name='homepage'),
     url(r'^textsearch/', textsearch.debugTextSearch, name='textsearch'),
     url(r'^debugisleaf/', ParamsFilter.debugIsLeaf, name='debugIsLeaf'),

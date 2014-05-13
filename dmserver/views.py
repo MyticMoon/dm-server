@@ -93,6 +93,39 @@ def DetailProdByPidPost(request):
 
     return HttpResponse(prod_json_result)
 
+@csrf_exempt
+def DetailProdByPidPost2(request):
+    proID = None;
+    if request.method == "POST":
+        proID = request.POST.get('pid',None)
+    else:
+        proID = request.GET.get('pid',None)
+    if proID == None:
+        return HttpResponse("Invalid request, pid is missing")
+    prod_query = "select p.product_id, p.name, p.price, p.description, p.product_url, p.brand, p.merchant, p.color, c.cid, c.name, i.pic_url, i.img_id from (products as p left join categories as c on p.cid=c.cid) left join images as i on p.product_id=i.product_id where p.product_id = %s order by i.img_type asc" % (str(proID))
+    cursor1 = connection.cursor()
+    cursor1.execute(prod_query)
+    prod_result = cursor1.fetchall()
+
+    if len(prod_result) >= 1:
+        catID = prod_result[0][8]
+        prod_results = list(Products.objects.filter(cid=catID))
+        rowsNum = len(prod_results)
+        offset = 0
+
+        if rowsNum > 4:
+            offset = int(math.floor(random.random()*(rowsNum-4)))
+
+        recommended_query = "select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where p.product_id!= %s and p.cid = %s and i.img_type='P' limit %s, 4"
+        cursor2 = connection.cursor()
+        query_string = 'select p.product_id, p.name, p.price, p.cid, i.pic_url, i.img_id from products as p left join images as i on p.product_id=i.product_id where p.product_id!= %s and p.cid = %s and i.img_type="P" limit %s, 4' % (str(proID), str(catID), str(offset))
+        cursor2.execute(query_string)
+        recommend_result = cursor2.fetchall()
+        recommend_result_formatted_dict = formatRecommendJson(recommend_result)
+
+    prod_json_result = formatProDetailJson2(prod_result, recommend_result_formatted_dict)
+
+    return HttpResponse(prod_json_result)
 
 def formatProDetailJson(query_results, recommend_result):
     #profield = ProductID,ProductName,ProductPrice,ProductDesc,ProductURL,ProductBrand,ProductMerchant,ProductColor,CatID,CatName
@@ -121,6 +154,33 @@ def formatProDetailJson(query_results, recommend_result):
                              'Output': {'Product': prod_json,
                                         'ProductImage': new_image_json,
                                         'Recommendation': recommend_result},
+                             }])
+    return json_file
+
+def formatProDetailJson2(query_results, recommend_result):
+    prod_json = {'ProductID': query_results[0][0],
+                'ProductName': query_results[0][1],
+                'ProductPrice': str(query_results[0][2]),
+                'ProductDesc': query_results[0][3],
+                'ProductURL': query_results[0][4],
+                'ProductBrand': query_results[0][5],
+                'ProductMerchant': query_results[0][6],
+                'ProductColor': query_results[0][7],
+                'CatID': query_results[0][8],
+                'CatName': query_results[0][9]}
+
+    new_image_json = []
+    for index in range(len(query_results)):
+        if index == 0:
+            new_image_json.extend([{'PrimaryImage': query_results[index][10]+str(query_results[index][11])}])
+        else:
+            new_image_json.extend([{'VariantImage': query_results[index][10]+str(query_results[index][11])}])
+
+    prod_json['ProducImage'] = new_image_json
+    prod_json['Recommendation'] = recommend_result
+
+    json_file = json.dumps([{'Result': {'ResultType': 'productdetails'},
+                             'Output': {'Product': prod_json }
                              }])
     return json_file
 
