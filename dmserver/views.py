@@ -172,9 +172,9 @@ def formatProDetailJson2(query_results, recommend_result):
     new_image_json = []
     for index in range(len(query_results)):
         if index == 0:
-            new_image_json.extend([{'PrimaryImage': query_results[index][10]+str(query_results[index][11])}])
+            new_image_json.extend([{'PrimaryImage': query_results[index][10]}])
         else:
-            new_image_json.extend([{'VariantImage': query_results[index][10]+str(query_results[index][11])}])
+            new_image_json.extend([{'VariantImage': query_results[index][10]}])
 
     prod_json['ProducImage'] = new_image_json
     prod_json['Recommendation'] = recommend_result
